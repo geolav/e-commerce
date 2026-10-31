@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package github.com.igoroutine_courses.microservices.ecommerce.notifications.v1;
+
+option go_package = "github.com/igoroutine-courses/microservices.ecommerce.pkg/generated/notifications/api/notifications/v1;notificationsv1";
+
+import "google/protobuf/empty.proto";
+
+service Notifications {
+    rpc Notify(NotifyRequest) returns (google.protobuf.Empty);
+}
+
+message NotifyRequest {
+    int64 user_id = 1;
+    int64 order_id = 2;
+    string status = 3;
+}

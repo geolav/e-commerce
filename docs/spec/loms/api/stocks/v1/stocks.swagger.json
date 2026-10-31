@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "loms/api/stocks/v1/stocks.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Stocks"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/stock/info": {
+      "post": {
+        "operationId": "Stocks_GetStock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetStockResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GetStockRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Stocks"
+        ]
+      }
+    },
+    "/v1/stock/set": {
+      "post": {
+        "operationId": "Stocks_SetStock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SetStockRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Stocks"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1GetStockRequest": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "v1GetStockResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1SetStockRequest": {
+      "type": "object",
+      "properties": {
+        "sku": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "count": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    }
+  }
+}

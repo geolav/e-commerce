@@ -1,0 +1,21 @@
+[1mdiff --cc .gitignore[m
+[1mindex acc2cfc,c6ddfb3..0000000[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@@ -16,10 -16,7 +16,14 @@@[m [mpkg/generate[m
+  *.yml[m
+  *Dockerfile[m
+  !Taskfile.yml[m
+[31m -*.lock[m
+  !ci.yaml[m
+  mocks[m
+[32m++<<<<<<< Updated upstream[m
+[32m +integration-tests[m
+[32m +!integration-tests/go.mod[m
+[32m +!integration-tests/go.sum[m
+[32m +!integration-tests/.gitignore[m
+[32m +!sqlc.yaml[m
+[32m++=======[m
+[32m+ vendor/[m
+[32m++>>>>>>> Stashed changes[m
+* Unmerged path notifications/Dockerfile
